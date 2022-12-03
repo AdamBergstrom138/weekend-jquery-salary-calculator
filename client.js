@@ -123,5 +123,13 @@ function render(){
         `)
         // to do: clear input fields
     }
+    // add my footer back to the table
+    $('table').append(`
+    <tfoot>
+    <tr class="blankRow">
+        <td colspan="5"></td>
+    </tr>
+    </tfoot>
+    `)
     calculateMonthly();
 }

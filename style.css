@@ -1,3 +1,8 @@
+table {
+    min-width: 500px;
+    background-color: wheat;
+}
+
 table, th, td {
 
     border: 1px solid black;
@@ -5,15 +10,20 @@ table, th, td {
     margin-left: auto;
     margin-right: auto;
 }
-.tableClass {
-    background-color: red;
-}
+
 body {
     background-color: aqua;
 }
 h1 {
     text-align: center;
     color: blueviolet;
+}
+#inputFields {
+    margin-left: auto;
+    margin-right: auto;
+}
+.blankRow {
+    height: 10px;
 }
 
 
