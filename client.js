@@ -30,26 +30,15 @@ function addNewEmployee(){
         jobTitle: newJobTitle,
         annualSalary: Number(newAnnualSalary)
     }
-    // push new object/employee into employees array
+    // push new object/employee into employees array then render
     employees.push(newEmployee);
-
     render();
 }
 
 // deleteEmployee will remove that employee from the table
-/*
-  for (let car of garage) {
+// I put the delete button on the employee ID because 
+// there should be no two employees with the same ID
 
-      if (Number(carText) !== car.year) {
-        carsWeDoNotWantToDelete.push(car);
-        console.log(car);
-      }
-    }
-
-    garage = carsWeDoNotWantToDelete;
-    render();
-  
-*/
 function deleteEmployee(){
     console.log('clicked a delete button!');
     let deleteButtonClicked = $(this);
@@ -58,17 +47,36 @@ function deleteEmployee(){
     console.log(employeeText);
     // create a new array for employees not to delete
     let keepers = [];
-
+    // push all employees we want to keep to 'keepers' array
     for (let employee of employees) {
         if (Number(employeeText) !== employee.id){
             
             keepers.push(employee);
         }
     }
-
-
+    // set 'employees' array to equal 'keepers' then render
     employees = keepers;
     render();
+}
+
+// calculateMonthy will calculate the total monthy cost of all employees
+
+function calculateMonthly(){
+    console.log('running calculateMonthly');
+    let monthlyCosts = 0;
+    let totalSalary = 0;
+    for(let i=0; i<employees.length; i++){
+        totalSalary += employees[i].annualSalary
+    }
+    monthlyCosts = (totalSalary/30);
+    if (monthlyCosts > 20000){
+        console.log('Monthly Costs have exceeded 20,000!', monthlyCosts);
+        // change css here to make background red
+    }
+    $('#output').empty();
+    $('#output').append(`
+    <h2 id="output">Monthly Cost: ${monthlyCosts}</h2>
+    `)
 }
 
 // render will print our array on the DOM
@@ -83,10 +91,9 @@ function render(){
     <tr>
         <td>First Name</td>
         <td>Last Name</td>
-        <td>ID Number</td>
+        <td>ID ✂️</td>
         <td>Job Title</td>
         <td>Annual Salary</td>
-        <td>✂️</td>
     </tr>
     `)
     // create a loop that displays all employees
@@ -100,7 +107,7 @@ function render(){
         <td>${employees[i].annualSalary}</td>
         </tr>
         `)
-        // <span class="yearSpan">${garage[i].year}</span>
         // to do: clear input fields
     }
+    calculateMonthly();
 }
