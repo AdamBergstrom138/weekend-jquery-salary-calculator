@@ -1,4 +1,28 @@
 table, th, td {
+
     border: 1px solid black;
     border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+}
+.tableClass {
+    background-color: red;
+}
+body {
+    background-color: aqua;
+}
+h1 {
+    text-align: center;
+    color: blueviolet;
+}
+
+
+#normal {
+    color: green;
+    background-color: white;
+}
+#red {
+    color: black;
+    background-color: red;
+    font-size: 300%;
 }

@@ -72,11 +72,25 @@ function calculateMonthly(){
     if (monthlyCosts > 20000){
         console.log('Monthly Costs have exceeded 20,000!', monthlyCosts);
         // change css here to make background red
-    }
+        $('#output').empty();
+        $('#output').append(`
+        <h2 id="output">
+            <div id="red">
+            Monthly Cost: ${monthlyCosts}
+            </div>
+        </h2>
+        `);
+        
+    } else {
     $('#output').empty();
     $('#output').append(`
-    <h2 id="output">Monthly Cost: ${monthlyCosts}</h2>
+        <h2 id="output">
+            <div id="normal">
+            Monthly Cost: ${monthlyCosts}
+            </div>
+        </h2>
     `)
+    }
 }
 
 // render will print our array on the DOM
