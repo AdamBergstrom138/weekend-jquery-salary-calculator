@@ -35,8 +35,22 @@ function addNewEmployee(){
     render();
 }
 
+// render will print our array on the DOM
+
 function render(){
     console.log(employees);
-
-    
+    // clear all table data
+    $('#table').empty();
+    // create a loop that displays all employees
+    for(let i=0; i<employees.length; i++){
+        $('table').append(`
+        <tr>
+        <td>${employees[i].firstName}</td>
+        <td>${employees[i].lastName}</td>
+        <td>${employees[i].id}</td>
+        <td>${employees[i].jobTitle}</td>
+        <td>${employees[i].annualSalary}</td>
+        </tr>
+        `)
+    }
 }
