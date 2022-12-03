@@ -131,5 +131,15 @@ function render(){
     </tr>
     </tfoot>
     `)
+    // run calculateMonthly
     calculateMonthly();
+    clearInputFields();
+}
+    // clearInputFields clears the input fields
+function clearInputFields(){
+    $('#firstNameIn').val('');
+    $('#lastNameIn').val('');
+    $('#idIn').val('');
+    $('#jobTitleIn').val('');
+    $('#annualSalaryIn').val('');
 }

@@ -1,6 +1,12 @@
+main {
+    margin: 5%;
+    background-color: aquamarine;
+    border: 2px solid black;
+}
+
 table {
     min-width: 500px;
-    background-color: wheat;
+    background-color: lavender;
 }
 
 table, th, td {
@@ -9,30 +15,51 @@ table, th, td {
     border-collapse: collapse;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 2%;
+
 }
 
 body {
+    margin: 0;
     background-color: aqua;
 }
+header {
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 5%;
+    background-color:  aquamarine;
+    border: 2px solid black;
+}
 h1 {
+    margin: 0;
+    font-size: 300%;
     text-align: center;
     color: blueviolet;
+
 }
 #inputFields {
-    margin-left: auto;
-    margin-right: auto;
+    margin-top: 2%;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 .blankRow {
-    height: 10px;
+    height: 25px;
+}
+#submit {
+    margin-left: 5%;
 }
 
-
 #normal {
-    color: green;
-    background-color: white;
+    color: blueviolet;
+    background-color: aquamarine;
+    margin: 5%;
+    border: 2px solid black;
+    font-size: 100%;
 }
 #red {
     color: black;
     background-color: red;
-    font-size: 300%;
+    margin: 5%;
+    border: 2px solid black;
+    font-size: 200%;
 }
