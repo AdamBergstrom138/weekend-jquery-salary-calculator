@@ -68,7 +68,7 @@ function calculateMonthly(){
     for(let i=0; i<employees.length; i++){
         totalSalary += employees[i].annualSalary
     }
-    monthlyCosts = (totalSalary/30);
+    monthlyCosts = (totalSalary/12);
     if (monthlyCosts > 20000){
         console.log('Monthly Costs have exceeded 20,000!', monthlyCosts);
         // change css here to make background red
