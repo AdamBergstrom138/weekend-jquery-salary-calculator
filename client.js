@@ -38,26 +38,22 @@ function addNewEmployee(){
 // deleteEmployee will remove that employee from the table
 // I put the delete button on the employee ID because 
 // there should be no two employees with the same ID
-
 function deleteEmployee(){
-    console.log('clicked a delete button!');
-    let deleteButtonClicked = $(this);
-    let idSpan = deleteButtonClicked.siblings();
-    let employeeText = idSpan.text();
-    console.log(employeeText);
-    // create a new array for employees not to delete
+    console.log('delete employee');
+    let employeeToDelete = $(this).data().emplid;
     let keepers = [];
-    // push all employees we want to keep to 'keepers' array
+
     for (let employee of employees) {
-        if (Number(employeeText) !== employee.id){
-            
-            keepers.push(employee);
+        if (employee.id !== employeeToDelete) {
+          keepers.push(employee);
         }
-    }
-    // set 'employees' array to equal 'keepers' then render
-    employees = keepers;
-    render();
+      }
+    
+      employees = keepers;
+      render();
+    
 }
+
 
 // calculateMonthy will calculate the total monthy cost of all employees
 
@@ -74,7 +70,7 @@ function calculateMonthly(){
         // change css here to make background red
         $('#output').empty();
         $('#output').append(`
-        <h2 id="output">
+        <h2 id="output">r
             <div id="red">
             Monthly Cost: ${monthlyCosts}
             </div>
@@ -97,40 +93,24 @@ function calculateMonthly(){
 
 function render(){
     console.log(employees);
-    // clear all table data
-    $('#table').empty();
-    // this is a little 'hacky' but it works to keep
-    // the category names after I empty the table
-    $('table').append(`
-    <tr>
-        <td>First Name</td>
-        <td>Last Name</td>
-        <td>ID ✂️</td>
-        <td>Job Title</td>
-        <td>Annual Salary</td>
-    </tr>
-    `)
+    // clear tableBody
+    $('#tableBody').empty();
+
     // create a loop that displays all employees
     for(let i=0; i<employees.length; i++){
-        $('table').append(`
+        $('#tableBody').append(`
         <tr>
         <td>${employees[i].firstName}</td>
         <td>${employees[i].lastName}</td>
-        <td><span class="idSpan">${employees[i].id}</span><button class="deleteEmployeeButton">✂️</button></td>
+        <td><span class="idSpan">${employees[i].id}</span></td>
         <td>${employees[i].jobTitle}</td>
         <td>${employees[i].annualSalary}</td>
+        <td><button class="deleteEmployeeButton"data-emplid=${employees[i].id}>✂️</button></td>
         </tr>
         `)
         // to do: clear input fields
     }
-    // add my footer back to the table
-    $('table').append(`
-    <tfoot>
-    <tr class="blankRow">
-        <td colspan="5"></td>
-    </tr>
-    </tfoot>
-    `)
+ 
     // run calculateMonthly
     calculateMonthly();
     clearInputFields();
